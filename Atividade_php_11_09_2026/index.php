@@ -37,13 +37,29 @@
     
     // Verifica se o formulário foi enviado
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Recebe o e-mail enviado pelo formulário
+        // Recebe os dados enviado pelo formulário
         $name = $_POST["name"];
         $email = $_POST["email"];
         $telefone = $_POST["telefone"];
 
-        // Mostra o e-mail recebido
-        echo "Nome do usuário: " . $name . "; E-mail recebido: " . $email . "; Telefone do usuário: " . $telefone;
+        // Obtém a conexão configurada no Render
+        $databaseUrl = getenv("DATABASE_URL");
+
+        // Conecta ao PostgreSQL
+        $conexao = pg_connect($databaseUrl);
+
+        // Salva os dados no banco
+        pg_query_params(
+            $conexao,
+            "INSERT INTO usuarios(name, email, telefone) VALUES ($1, $2, $3)",
+            [$name, $email, $telefone]
+
+        );
+
+        // Mostra os dados para o Front-end recebido
+        echo "Nome do usuário: " . $name;
+        echo "E-mail recebido: " . $email;
+        echo "Telefone do usuário: " . $telefone;
     }
 
     ?>
