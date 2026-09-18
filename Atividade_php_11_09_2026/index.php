@@ -38,10 +38,12 @@
     // Verifica se o formulário foi enviado
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Recebe o e-mail enviado pelo formulário
+        $name = $_POST["name"];
         $email = $_POST["email"];
+        $telefone = $_POST["telefone"];
 
         // Mostra o e-mail recebido
-        echo "E-mail recebido: " . $email;
+        echo "Nome do usuário: " . $name . "; E-mail recebido: " . $email . "; Telefone do usuário: " . $telefone;
     }
 
     ?>
