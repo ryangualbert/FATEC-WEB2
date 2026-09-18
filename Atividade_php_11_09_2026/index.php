@@ -51,7 +51,7 @@
         // Salva os dados no banco
         pg_query_params(
             $conexao,
-            "INSERT INTO usuarios(name, email, telefone) VALUES ($1, $2, $3)",
+            "INSERT INTO usuario(name, email, telefone) VALUES ($1, $2, $3)",
             [$name, $email, $telefone]
 
         );
