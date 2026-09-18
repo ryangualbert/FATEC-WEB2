@@ -32,18 +32,20 @@
         <!-- Botão para enviar o formulário -->
         <button type="submit">Cadastrar</button>
     </form>
+
     <?php
     
     // Verifica se o formulário foi enviado
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Recebe o e-mail enviado pelo formulário
-        $email = $POST["email"];
+        $email = $_POST["email"];
 
         // Mostra o e-mail recebido
         echo "E-mail recebido: " . $email;
     }
 
     ?>
+
 </body>
 
 </html>
