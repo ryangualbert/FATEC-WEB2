@@ -57,9 +57,7 @@
         );
 
         // Mostra os dados para o Front-end recebido
-        echo "Nome do usuário: " . $name;
-        echo "E-mail recebido: " . $email;
-        echo "Telefone do usuário: " . $telefone;
+        echo "Nome do usuário: " . $name . "; E-mail recebido: " . $email . "; Telefone do usuário: " . $telefone;
     }
 
     ?>
